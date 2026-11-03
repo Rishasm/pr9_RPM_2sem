@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace HotelAPI.Models;
@@ -9,7 +9,7 @@ public partial class User
 
     public string Login { get; set; } = null!;
 
-    public string UserPassword { get; set; } = null!;
+    public string PasswordHash { get; set; } = null!;
 
     public int RoleId { get; set; }
 
@@ -17,7 +17,10 @@ public partial class User
 
     public bool IsActive { get; set; }
 
+    public virtual Cart? Cart { get; set; }
+
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     public virtual Role Role { get; set; } = null!;
+    public virtual ICollection<ProductReservation> ProductReservations { get; set; } = new List<ProductReservation>();
 }
